@@ -10,7 +10,7 @@ import UIKit
 import WatchConnectivity
 
 class ViewController: UIViewController {
-  
+    
     @IBOutlet var tableView: UITableView!
     var counterData = [Int]()
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default() : nil
@@ -31,20 +31,20 @@ class ViewController: UIViewController {
         session?.delegate = self;
         session?.activate()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         self.title = "Count List"
-
+        
         self.tableView.dataSource = self
     }
 }
 
 extension ViewController: WCSessionDelegate {
-        
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        //Use this to update the UI instantaneously (otherwise, takes a little while)
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        //Dispatch to main thread to update the UI instantaneously (otherwise, takes a little while)
         DispatchQueue.main.async {
             if let counterValue = message["counterValue"] as? Int {
                 self.counterData.append(counterValue)
@@ -60,11 +60,11 @@ extension ViewController: WCSessionDelegate {
 }
 
 extension ViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return counterData.count;
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CounterCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
@@ -73,6 +73,6 @@ extension ViewController: UITableViewDataSource {
         cell?.textLabel?.text = counterValueString
         
         return cell!
-
+        
     }
 }
