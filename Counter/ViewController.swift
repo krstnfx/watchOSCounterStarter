@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     var counterData = [Int]()
-    private let session: WCSession? = WCSession.isSupported() ? WCSession.default() : nil
+    private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
