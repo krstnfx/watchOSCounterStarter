@@ -27,7 +27,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 /*
  * 4 - Set up Watch Connectivity
  */
-private let session : WCSession? = WCSession.isSupported() ? WCSession.default() : nil
+private let session : WCSession? = WCSession.isSupported() ? WCSession.default : nil
 
 override init() {
     super.init()
