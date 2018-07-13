@@ -6,27 +6,18 @@
 //
 //
 
-/* 
- * 1 - Create a variable for your counter
- */
+// 1 - Create a variable for your counter
 var counter = 0
 
 
-/*
- * 2 - Import Watch Connectivity framework
- */
+// 2 - Import Watch Connectivity framework
 import WatchConnectivity
 
 
-/*
- * 3 - Add WCSessionDelegate to class definition
- */
+// 3 - Add WCSessionDelegate to class definition
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
-    
-/*
- * 4 - Set up Watch Connectivity
- */
+// 4 - Set up Watch Connectivity
 private let session : WCSession? = WCSession.isSupported() ? WCSession.default : nil
 
 override init() {
@@ -39,16 +30,12 @@ override init() {
 func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
     
     
-/*
- * 5 - Setup your incrementCounter() function
- */
+// 5 - Setup your incrementCounter() function
 counter+=1;
 counterLabel.setText(String(counter))
     
 
-/*
- * 6 - Setup your saveCounter() function
- */
+// 6 - Setup your saveCounter() function
 let applicationData = ["counterValue" : counter]
 
 if let session = session, session.isReachable {

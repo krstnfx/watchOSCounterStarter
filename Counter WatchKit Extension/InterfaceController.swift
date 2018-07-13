@@ -8,28 +8,22 @@
 
 import WatchKit
 import Foundation
-/*
- * 2 - Import Watch Connectivity framework
- */
+// 2 - Import Watch Connectivity framework
 
-/*
- * 3 - Add WCSessionDelegate to class definition
- */
+
+// 3 - Add WCSessionDelegate to class definition
+
 class InterfaceController: WKInterfaceController {
-    /*
-     * 1 - Create a variable for your counter
-     */
 
-    /*
-     * 4 - Set up Watch Connectivity
-     */
+     // 1 - Create a variable for your counter
+
     
-    /*
-     * 5 - Setup your incrementCounter() function
-     */
+     // 4 - Set up Watch Connectivity
     
-    /*
-     * 6 - Setup your saveCounter() function
-     */
+    
+     // 5 - Setup your incrementCounter() function
+    
+    
+     // 6 - Setup your saveCounter() function
 
 }
